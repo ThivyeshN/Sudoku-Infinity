@@ -73,7 +73,7 @@ function displayGrid(grid) {
   }
 }
 
-// Helper function
+// Helper functions
 function isValidEntry(grid, row, col, num) {
   // Check row & column
   for (let i = 0; i < 9; i++) {
@@ -90,6 +90,40 @@ function isValidEntry(grid, row, col, num) {
     }
   }
   return true;
+}
+
+// Timer functions
+let seconds = 0;
+let minutes = 0;
+let timerInterval;
+let puzzlesCompleted = 0;
+
+// Start timer
+function startTimer() {
+  clearInterval(timerInterval);
+  seconds = 0;
+  minutes = 0;
+  timerInterval = setInterval(() => {
+    seconds++;
+    if (seconds === 60) {
+      seconds = 0;
+      minutes++;
+    }
+    document.getElementById('timer').textContent = `Time: ${pad(minutes)}:${pad(seconds)}`;
+  }, 1000);
+}
+
+// Reset timer
+function resetTimer() {
+  clearInterval(timerInterval);
+  seconds = 0;
+  minutes = 0;
+  document.getElementById('timer').textContent = `Time: 00:00`;
+}
+
+// Helper to pad single digits
+function pad(n) {
+  return n < 10 ? '0' + n : n;
 }
 
 // Cell input
