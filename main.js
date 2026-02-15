@@ -157,14 +157,16 @@ function selectCell(cell) {
 
 // New Game button
 document.getElementById('new-game').addEventListener('click', () => {
-  const difficulty = parseInt(document.getElementById('difficulty').value); // get number of clues
+  const difficulty = parseInt(document.getElementById('difficulty').value);
   sudokuGrid = Array.from({ length: 9 }, () => Array(9).fill(0));
 
-  fillGrid(sudokuGrid); // generate full solution
-  sudokuGridFull = JSON.parse(JSON.stringify(sudokuGrid)); // keep solved copy
-
-  removeNumbers(sudokuGrid, difficulty); // create puzzle
+  fillGrid(sudokuGrid);
+  sudokuGridFull = JSON.parse(JSON.stringify(sudokuGrid));
+  removeNumbers(sudokuGrid, difficulty);
   displayGrid(sudokuGrid);
+
+  resetTimer();
+  startTimer();
 });
 
 // Hint button
