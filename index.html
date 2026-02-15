@@ -1,1 +1,20 @@
-<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <title>Sudoku Infinity</title>\n</head>\n<body>\n    <div class="stats-bar">\n        <span id="completed">Completed: 0</span>\n    </div>\n    <div class="controls">\n        <label for="note-color">Note Color:</label>\n        <input type="color" id="note-color" name="note-color">\n        <label for="difficulty">Difficulty:</label>\n        <select id="difficulty">\n            <option value="1">Easy</option>\n            <option value="2">Medium</option>\n            <option value="3">Hard</option>\n        </select>\n    </div>\n</body>\n</html>\n
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Infinity</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .completed { background-color: lightgreen; }
+        .note-color { background-color: lightyellow; }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Sudoku Infinity</h1>
+    <div id="sudoku-board">
+        <!-- Sudoku grid will be generated here -->
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
