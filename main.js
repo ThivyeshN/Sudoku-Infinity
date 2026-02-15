@@ -1,6 +1,7 @@
-// Updating the difficulty mapping
-function resetGame(difficulty) {
+function resetGame() {
+    const difficulty = document.getElementById('difficulty').value;
     let clueCount;
+
     switch (difficulty) {
         case 'easy':
             clueCount = 50;
@@ -12,7 +13,9 @@ function resetGame(difficulty) {
             clueCount = 30;
             break;
         default:
-            throw new Error('Invalid difficulty level');
+            clueCount = 40; // Default to medium if no valid selection
     }
-    // The rest of the resetGame function logic goes here...
+
+    // Additional logic for resetting the game with the clue count.
+    initializeGame(clueCount);
 }
