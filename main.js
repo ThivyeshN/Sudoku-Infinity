@@ -149,5 +149,6 @@ document.getElementById('hint').addEventListener('click', () => {
 
 // Initial puzzle load
 fillGrid(sudokuGrid);
+sudokuGridFull = JSON.parse(JSON.stringify(sudokuGrid)); // keep solved copy
 removeNumbers(sudokuGrid, 40);
 displayGrid(sudokuGrid);
