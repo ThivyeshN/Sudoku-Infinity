@@ -87,9 +87,10 @@ function selectCell(cell) {
 
 // New Game button
 document.getElementById('new-game').addEventListener('click', () => {
+  const difficulty = parseInt(document.getElementById('difficulty').value); // get number of clues
   sudokuGrid = Array.from({ length: 9 }, () => Array(9).fill(0));
   fillGrid(sudokuGrid);
-  removeNumbers(sudokuGrid, 40); // medium difficulty
+  removeNumbers(sudokuGrid, difficulty); // now uses selected difficulty
   displayGrid(sudokuGrid);
 });
 
