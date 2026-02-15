@@ -133,6 +133,20 @@ document.getElementById('new-game').addEventListener('click', () => {
   displayGrid(sudokuGrid);
 });
 
+// Hint button
+document.getElementById('hint').addEventListener('click', () => {
+  for (let row = 0; row < 9; row++) {
+    for (let col = 0; col < 9; col++) {
+      if (sudokuGrid[row][col] === 0) { // find first empty cell
+        sudokuGrid[row][col] = sudokuGridFull[row][col]; // fill correct number
+        displayGrid(sudokuGrid);
+        return; // only fill one cell per hint
+      }
+    }
+  }
+  alert("No empty cells left!");
+});
+
 // Initial puzzle load
 fillGrid(sudokuGrid);
 removeNumbers(sudokuGrid, 40);
