@@ -127,6 +127,20 @@ function pad(n) {
 }
 
 // Cell input
+function checkCompletion() {
+  for (let row = 0; row < 9; row++) {
+    for (let col = 0; col < 9; col++) {
+      if (sudokuGrid[row][col] !== sudokuGridFull[row][col]) return false;
+    }
+  }
+  // Puzzle completed
+  clearInterval(timerInterval);
+  puzzlesCompleted++;
+  document.getElementById('completed').textContent = `Puzzles Completed: ${puzzlesCompleted}`;
+  alert(`Puzzle Completed in ${pad(minutes)}:${pad(seconds)}!`);
+  return true;
+}
+
 function selectCell(cell) {
   const num = prompt("Enter a number (1-9):");
   if (num >= 1 && num <= 9) {
