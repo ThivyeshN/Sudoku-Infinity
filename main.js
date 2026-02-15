@@ -73,6 +73,25 @@ function displayGrid(grid) {
   }
 }
 
+// Helper function
+function isValidEntry(grid, row, col, num) {
+  // Check row & column
+  for (let i = 0; i < 9; i++) {
+    if (i !== col && grid[row][i] === num) return false;
+    if (i !== row && grid[i][col] === num) return false;
+  }
+  // Check 3x3 box
+  const startRow = Math.floor(row / 3) * 3;
+  const startCol = Math.floor(col / 3) * 3;
+  for (let r = 0; r < 3; r++) {
+    for (let c = 0; c < 3; c++) {
+      if ((startRow + r !== row || startCol + c !== col) &&
+          grid[startRow + r][startCol + c] === num) return false;
+    }
+  }
+  return true;
+}
+
 // Cell input
 function selectCell(cell) {
   const num = prompt("Enter a number (1-9):");
