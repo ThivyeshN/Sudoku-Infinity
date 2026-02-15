@@ -154,6 +154,7 @@ function selectCell(cell) {
     if (isValidEntry(sudokuGrid, row, col, parseInt(num))) {
       cell.textContent = num;
       cell.style.color = 'black'; // valid
+      checkCompletion(); // check if puzzle is finished
     } else {
       cell.style.color = 'red'; // invalid
     }
