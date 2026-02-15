@@ -77,9 +77,26 @@ function displayGrid(grid) {
 function selectCell(cell) {
   const num = prompt("Enter a number (1-9):");
   if (num >= 1 && num <= 9) {
-    cell.textContent = num;
+    const row = parseInt(cell.dataset.row);
+    const col = parseInt(cell.dataset.col);
+
+    // Temporarily place the number in the grid
+    sudokuGrid[row][col] = parseInt(num);
+
+    // Check if number is valid
+    if (isValidEntry(sudokuGrid, row, col, parseInt(num))) {
+      cell.textContent = num;
+      cell.style.color = 'black'; // valid
+    } else {
+      cell.style.color = 'red'; // invalid
+    }
+
   } else if (num === null || num === '') {
     cell.textContent = '';
+    const row = parseInt(cell.dataset.row);
+    const col = parseInt(cell.dataset.col);
+    sudokuGrid[row][col] = 0;
+    cell.style.color = 'black';
   } else {
     alert("Invalid input! Use numbers 1-9 only.");
   }
